@@ -24,7 +24,7 @@
 #define ENCODERS_PAD_A { A2, D3 }
 #define ENCODERS_PAD_B { A3, D4 }
 #define ENCODER_DIRECTION_FLIP
-#define ENCODER_RESOLUTIONS { 2, 2 }
+#define ENCODER_RESOLUTIONS { 4, 2 }
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE
@@ -32,5 +32,6 @@
 #define LOCKING_RESYNC_ENABLE
 
 #define OLED_TIMEOUT 180000
+#define OLED_BRIGHTNESS 10
 
-#define TAPPING_TERM 150
+#define TAPPING_TERM 110

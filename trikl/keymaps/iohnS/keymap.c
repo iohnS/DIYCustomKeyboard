@@ -6,42 +6,44 @@
 
 #define _BASE 0
 #define _CODING 1
-#define _EXTRA 2
-#define _SPECIAL 3
+#define _NUMBERS 2
+#define _NAVIGATION 3
 #define _MACRO 4
+//#define _BROWSING 5
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT(
         KC_ESC,     KC_F1,  KC_F2,  KC_F3,  KC_F4,     KC_F5,  KC_F6,  KC_F7,  KC_F8,    KC_F9,  KC_F10,  KC_F11,  KC_F12,     KC_PSCR, KC_SLCK, KC_PAUS,
 
         KC_GRV,  KC_1,  KC_2,  KC_3,  KC_4,  KC_5,  KC_6,  KC_7,  KC_8,  KC_9,  KC_0,  KC_MINS,  KC_EQL,  KC_BSPC,             KC_INS,  KC_HOME, KC_PGUP,
-        LT(_SPECIAL, KC_TAB),   KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,  KC_Y,  KC_U,  KC_I,  KC_O,  KC_P,  KC_LBRC,  KC_RBRC,                     KC_DEL,  KC_END,  KC_PGDN,
-        LT(_EXTRA, KC_CAPS),   KC_A,  KC_S,  KC_D,  KC_F,  KC_G,  KC_H,  KC_J,  KC_K,  KC_L,  KC_SCLN,  KC_QUOT,  KC_NUHS,  KC_ENT,
+        LT(_NUMBERS, KC_TAB),   KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,  KC_Y,  KC_U,  KC_I,  KC_O,  KC_P,  KC_LBRC,  KC_RBRC,                     KC_DEL,  KC_END,  KC_PGDN,
+        LT(_NAVIGATION, KC_CAPS),   KC_A,  KC_S,  KC_D,  KC_F,  KC_G,  KC_H,  KC_J,  KC_K,  KC_L,  KC_SCLN,  KC_QUOT,  KC_NUHS,  KC_ENT,
         KC_LSFT,  KC_NUBS,  KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,  KC_N,  KC_M,  KC_COMM,  KC_DOT,  KC_SLSH,  KC_RSFT,             KC_MUTE, KC_UP, _______,
         KC_LCTL,   KC_LALT,  LT(_CODING, KC_LGUI),                       KC_SPC,                     KC_RALT,  KC_RGUI,  OSL(_MACRO),  KC_RCTL,  KC_LEFT, KC_DOWN, KC_RGHT
     ),
     [_CODING] = LAYOUT(
         RESET,          _______, _______, _______, _______,     _______, _______, _______, _______,      _______, _______, _______, _______,   _______, _______, _______,
-        _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,         _______, _______, _______,
-        _______,     S(KC_0), S(KC_2), S(KC_3),  ALGR(KC_NUBS), _______, _______,  S(KC_SLSH), _______, _______, _______, _______, _______,        _______, _______, _______,
-        _______,       S(KC_8), S(KC_9), ALGR(KC_7), ALGR(KC_0),  _______, _______, ALGR(KC_8), ALGR(KC_9), S(KC_7), S(KC_6), _______, _______, _______, 
-        _______,     _______, _______, _______, _______, _______, _______,  KC_NUBS, S(KC_NUBS), _______, _______, _______, _______,           _______, _______, _______,
-        _______,   _______,   _______,                      _______,                              _______,   _______,   _______,   _______,      _______,  _______, _______
+        _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_DEL,         _______, _______, _______,
+        _______,     S(KC_0), S(KC_2), S(KC_3),  S(KC_6), _______, _______,  S(KC_SLSH), KC_NUBS, S(KC_NUBS), _______, _______, _______,        _______, _______, _______,
+        _______,       S(KC_8), S(KC_9), ALGR(KC_7), ALGR(KC_0),  KC_HOME, KC_END, ALGR(KC_8), ALGR(KC_9), S(KC_7), ALGR(KC_NUBS), _______, _______, _______, 
+        _______,     _______, _______, _______, ALGR(KC_MINS), _______, _______,  S(KC_COMM), S(KC_DOT), _______, _______, _______, _______,           _______, _______, _______,
+        _______,   _______,   _______,                      _______,                             _______,   _______,   _______,   _______,      _______,  _______, _______
     ),
-	[_EXTRA] = LAYOUT(
-        _______,            _______, _______, _______, _______,     _______, _______, _______, _______,      _______, _______, _______, _______,   _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_DEL,            _______, _______, _______,
-        _______,     _______, C(KC_C), C(KC_V),  _______, _______, _______, _______, _______, _______, _______, _______, _______,	         		_______, _______, _______,
-        _______,       KC_0, KC_1, KC_2, KC_3,  KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, _______, _______, _______, 
-        _______,     _______, _______, _______, KC_BTN1, _______, _______, _______, _______, _______, _______, _______, _______,           _______, _______,  _______,
-        _______,   _______,   _______,                      _______,                              _______,   _______,   _______,   _______,      _______,  _______, _______
-    ),
-	[_SPECIAL] = LAYOUT(
+	[_NUMBERS] = LAYOUT(
         _______,            _______, _______, _______, _______,     _______, _______, _______, _______,      _______, _______, _______, _______,   _______, _______, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,            _______, _______, _______,
-        _______,     _______, _______, _______,  _______, _______, _______,  _______, KC_UP, _______, _______,  _______, _______, 			        _______, _______, _______,
-        _______,      _______, C(KC_D), _______, _______,  _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______, _______, _______, 
-        _______,     _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,           _______, _______, _______,
+        _______,     _______, _______, _______,  _______, _______, _______, KC_0, KC_1, KC_2, KC_3, _______, _______,	         		_______, _______, _______,
+        _______,       _______, _______, _______, _______,  _______, _______, KC_4, KC_5, KC_6, KC_7, _______, _______, _______, 
+        _______,     _______, _______, _______, _______, _______, _______, KC_8, KC_9, _______, _______, _______, _______,           _______, _______,  _______,
+        _______,   _______,   _______,                      _______,                              _______,   _______,   _______,   _______,      _______,  _______, _______
+    ),
+	[_NAVIGATION] = LAYOUT(
+        _______,            _______, _______, _______, _______,     _______, _______, _______, _______,      _______, _______, _______, _______,   _______, _______, _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,            _______, _______, _______,
+        _______,     _______, C(KC_C), C(KC_V),  _______, _______, _______,  KC_HOME, KC_UP, KC_END, _______,  _______, _______, 			        _______, _______, _______,
+        _______,      _______, C(KC_D), LCTL(KC_LSFT), _______,  _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______, _______, _______, 
+        _______,     _______,  _______, _______, KC_BTN1, _______, _______, _______, _______, _______, _______, _______, _______,           _______, _______, _______,
         _______,   _______,   _______,                      _______,                              _______,   _______,   _______,   _______,      _______,  _______, _______
     ),
 	[_MACRO] = LAYOUT(
@@ -55,34 +57,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-	switch(keycode){
-		case UNDO:
-			if(record->event.pressed){
-				SEND_STRING(SS_LCTL(SS_TAP(X_Z)));
-			}
-			break;
-		case REDO: 
-			if(record->event.pressed){
-				SEND_STRING(SS_LCTL(SS_TAP(X_Y)));
-			}
-			break;
-	}
-	return true;
-};
-
 #ifdef ENCODER_ENABLE
 bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) { /* Right encoder */
-		switch(biton32(layer_state)){
-			case _BASE:
-				clockwise ? tap_code(KC_WH_U) : tap_code(KC_WH_D);
-			case _CODING:
-				clockwise ? tap_code16(C(KC_Y)) : tap_code16(C(KC_Z));
-		}
+        switch(get_highest_layer(layer_state)){
+            case _CODING:
+				//REDO and UNDO
+                tap_code16(clockwise ? C(KC_Y) : C(KC_Z));
+                break;
+			case _NAVIGATION: 
+				tap_code16(clockwise ? C(S(KC_RIGHT)) : C(S(KC_LEFT)));
+            default:
+				//Volume UP and DOWNs
+                tap_code_delay(clockwise ? KC_WH_U : KC_WH_D, 5);
+                break;
+        }
     } else if (index == 1) { /* Left encoder */
-		clockwise ? tap_code(KC_VOLU) : tap_code(KC_VOLD);
-	}
+        tap_code_delay(clockwise ? KC_VOLU : KC_VOLD, 5);
+    }
     return true;
 }
 #endif
@@ -90,19 +82,23 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 
 #ifdef OLED_DRIVER_ENABLE
 
-uint32_t anim_timer = 0;
-uint32_t anim_sleep = 0;
+//configuration settings
+#define WPM_THRESHOLD 80
+#define WPM_DURATION 4000
+#define LOWEST_WPM 85
+#define FRAMERATE 20  //20 frames per second
+#define NUM_FRAMES 10  //number of frames in the animation
+#define FRAME_SIZE 512
+ 
+const uint16_t FRAME_DURATION = 1000/FRAMERATE;  //length of each frame in ms
 
-uint8_t current_frame = 0;
-
-#define WPM_THRESHOLD 70
-#define ANIM_SIZE 512
-#define FRAME_SIZE 10
-#define ANIM_FRAME_DURATION 200
-
-/* Animation starts after 5 seconds of keeping the WPM threshold. After 1 second of not keeping the WPM threshold the animation turns off*/
 static void render_animation(void){
-    static const char PROGMEM fire[FRAME_SIZE][ANIM_SIZE] = {
+    static uint16_t frame_timer = 0;    //when was the last frame drawn?
+    static uint16_t current_frame = 0;  //which frame is the animation on?
+    static bool anim_active = false;    //is the animation going?
+    static uint16_t wpm_timer = 0;      //when was WPM_THRESHOLD reached?
+
+	static const char PROGMEM fire[NUM_FRAMES][FRAME_SIZE] = {
     {
 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
@@ -435,70 +431,53 @@ static void render_animation(void){
 	0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
 }
     };
-static const char PROGMEM empty_frame[][ANIM_SIZE] = {
-		{
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-		0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-		}
-	};
-    void animate_fire(void){
-        current_frame = (current_frame + 1) % FRAME_SIZE;
-        if(get_current_wpm() > WPM_THRESHOLD){
-            oled_write_raw_P(fire[abs((FRAME_SIZE - 1) - current_frame)], ANIM_SIZE);
-        }
-		if(get_current_wpm() < WPM_THRESHOLD){
-			oled_write_raw_P(empty_frame[0], ANIM_SIZE);
-		}
-    }
-
-    if(timer_elapsed32(anim_timer) > ANIM_FRAME_DURATION) {
-        anim_timer = timer_read32();
-        animate_fire();
-    }else{
-		oled_write_P(empty_frame[0], false);
+    
+    //exit and do nothing if it is not yet time to draw the next frame
+    if (timer_elapsed(frame_timer) < FRAME_DURATION){
+        return;
 	}
 
-    /* this fixes the screen on and off bug */
-    if (get_current_wpm() > 0) {
-        oled_on();
-        anim_sleep = timer_read32();
-    } else if(timer_elapsed32(anim_sleep) > OLED_TIMEOUT) {
-        oled_off();
+    frame_timer = timer_read();  //set the time that this frame is calculated/drawn
+    
+    uint8_t wpm = get_current_wpm();    //store the current wpm on each program loop
+    
+    //if wpm is below LOWEST_WPM, reset the timer to 0
+    if(wpm <= LOWEST_WPM) {
+        wpm_timer = 0;
+        //reset OLED if animation was started
+        if (anim_active) {
+            oled_clear();
+            anim_active = false;
+            current_frame = 0;
+        }
+        return;
+    }
+
+    //if wpm_timer is 0, mark the time when wpm reaches WPM_THRESHOLD
+    if (!wpm_timer && wpm > WPM_THRESHOLD) {
+        wpm_timer = timer_read();
+    }
+    
+    //reset wpm_timer if it is set and wpm goes below WPM_THRESHOLD before WPM_DURATION
+    if (wpm_timer && !anim_active && wpm < WPM_THRESHOLD) {
+        wpm_timer = 0;
+    }
+    
+    //if WPM_THRESHOLD has been maintained for WPM_DURATION time, start animation
+    if (wpm_timer && timer_elapsed(wpm_timer) >= WPM_DURATION) {
+        anim_active = true;
+    }
+    
+    //if animation has started and wpm is above LOWEST_WPM, draw a frame and advance to the next one
+    if (anim_active && wpm >= WPM_THRESHOLD) {
+        oled_write_raw_P(fire[current_frame], FRAME_SIZE);
+		current_frame = (current_frame + 1) % NUM_FRAMES;
     }
 };
 
+
 static void render_status(void){
-	oled_write_P(PSTR("     Layer: "), false);
+	oled_write_P(PSTR("\n     Layer: "), false);
     switch (get_highest_layer(layer_state)) {
         case _BASE:
             oled_write_ln_P(PSTR("Base"), false);
@@ -506,11 +485,11 @@ static void render_status(void){
         case _CODING:
             oled_write_ln_P(PSTR("Coding"), false);
             break;
-		case _EXTRA:
-			oled_write_ln_P(PSTR("Extra"), false);
+		case _NUMBERS:
+			oled_write_ln_P(PSTR("Numbers"), false);
 			break;
-		case _SPECIAL:
-			oled_write_ln_P(PSTR("Special"), false);
+		case _NAVIGATION:
+			oled_write_ln_P(PSTR("Navigate"), false);
 			break;
 		case _MACRO:
 			oled_write_ln_P(PSTR("Macro"), false);
@@ -518,15 +497,19 @@ static void render_status(void){
         default:
             oled_write_ln_P(PSTR("Undefined"), false);
     }
-}
+};
+
+char wpm_str[20];	
 
 void oled_task_user(void) {
-	if(get_current_wpm() > WPM_THRESHOLD){
-		render_animation();
-	}
-	else{
-    	render_status();
-	}
+		if(get_current_wpm() >= WPM_THRESHOLD){
+			render_animation();
+		}else{
+			sprintf(wpm_str, "       WPM: %03d", get_current_wpm());
+        	oled_write(wpm_str, false); 
+			render_status();
+		}
+
 }
 #endif
 
