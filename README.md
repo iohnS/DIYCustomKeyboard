@@ -4,4 +4,4 @@ This project is based on this build log: https://hackaday.io/project/171323-circ
 
 This repository contains mainly keymaps and config for the QMK firmware. 
 
-Project finished 2021. Medium blog post can be read [here](https://medium.com/@iohn/how-to-turn-almost-any-mechanical-keyboard-programmable-cb742e70368d).
+Project finished 2021. Medium post can be read [here](https://medium.com/@iohn/how-to-turn-almost-any-mechanical-keyboard-programmable-cb742e70368d) for more detailed description of the project.
